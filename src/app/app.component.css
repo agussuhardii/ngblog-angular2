@@ -1,0 +1,52 @@
+.blink_1 {
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-name: blinker;
+  -moz-animation-duration: 3s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+  animation-name: blinker;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; color: #fff2fe;
+}
+
+@-moz-keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1.0; }
+}
+
+@keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1.0; }
+}
+
+
+
+
+/*kedua*/
+
+.blink_2 {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}

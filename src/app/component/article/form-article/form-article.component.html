@@ -1,0 +1,36 @@
+<div class="col-md-12">
+  <div class="inbox-body">
+    <div class="inbox-header">
+      <div class="portlet light ">
+        <div class="portlet-title">
+          <div class="actions">
+            <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;"> </a>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-icon right">
+            <i class="fa fa-microphone fa-spin font-blue"></i>
+            <input type="text" class="form-control" placeholder="Title here" name="title" [(ngModel)]="article.title"></div>
+        </div>
+        <div class="portlet-body">
+          <div class="form-body">
+            <div class="form-group">
+              <textarea rows="10" placeholder="article" name="article" [(ngModel)]="article.article"></textarea>
+            </div>
+            <div class="form-group">
+                  <input type="radio" name="status" value="published" [(ngModel)]="article.status"> Published
+                  <input type="radio" name="status" value="private" [(ngModel)]="article.status"> Private
+                  <input type="radio" name="status" value="draft" [(ngModel)]="article.status"> Draft
+              </div>
+            <div class="form-group">
+              <button type="button" class="btn blue-madison">Cancel</button>
+              <button type="button" class="btn blue-madison" (click)="save()">Send</button>
+              <span style="color: red;">{{warning}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,30 @@
+<div class="page-content-inner">
+  <div class="inbox">
+    <div class="row">
+
+      <div class="col-md-3">
+        <div class="inbox-sidebar">
+          <a routerLink="/article/form" class="btn red btn-block"> <i class="fa fa-edit"></i> Compose </a>
+          <ul class="inbox-nav">
+            <li class="active"> <a routerLink="/article/list/null"> All <span class="badge badge-success">{{_all}}</span></a> </li>
+            <li class="divider"></li>
+            <li> <a routerLink="/article/list/published"> Published <span class="badge badge-info">{{_published}}</span> </a> </li>
+            <li> <a routerLink="/article/list/private"> Private <span class="badge badge-info">{{_private}}</span> </a> </li>
+            <li> <a routerLink="/article/list/draft"> Draft <span class="badge badge-info">{{_draft}}</span></a></li>
+            <li class="divider"> </li>
+            <li> <a routerLink="/article/list/share"> Your Share  </a> </li>
+            <li class="divider"> </li>
+            <li> <a routerLink="/article/list/trash"> Trash <span class="badge badge-danger">{{_trash}}</span> </a> </li>
+            <li> <a routerLink="/article/diff/list"> History <span class="badge badge-info"></span> </a> </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-9">
+
+        <router-outlet></router-outlet>
+
+      </div>
+    </div>
+  </div>
+</div>
+

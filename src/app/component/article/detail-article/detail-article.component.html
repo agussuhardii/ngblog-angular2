@@ -1,0 +1,151 @@
+<div>
+  <!-- show detail -->
+  <!-- BEGIN Portlet PORTLET-->
+  <div>
+    <div class="portlet light">
+      <div class="portlet-title">
+        <div class="caption">
+          <i class="icon-speech"></i>
+          <span class="caption-subject bold uppercase"> {{article.title}}</span><!--
+          <span class="caption-helper">{{article.userName.userName}}</span>-->
+        </div>
+        <div class="actions">
+
+          <button *ngIf="article.onEdit==false && article.userName.userName==currentUser"
+                  class="btn btn-circle btn-default" data-target="#responsive"
+                  data-toggle="modal">
+            <i class="fa fa-share-alt"></i> Share
+          </button>
+<!--revisi di user sama-->
+          <a *ngIf="article.onEdit==false || article.userNameChange==currentUser"
+             (click)="goEdit()"
+             class="btn btn-circle btn-default">
+            <i class="fa fa-pencil"></i>
+            <span *ngIf="article.userNameChange==currentUser && article.onEdit==true">Contine Editing</span>
+            <span *ngIf="article.onEdit==false">Edit</span>
+          </a>
+
+
+          <button *ngIf="article.onEdit==false && article.userName.userName==currentUser"
+                  class="btn btn-circle btn-default" data-target="#static"
+                  data-toggle="modal">
+            <i class="fa fa-trash"></i> Delete / Restore
+          </button>
+
+          <button *ngIf="article.onEdit==true && article.userNameChange!=currentUser"
+                  class="btn btn-circle btn-default">
+            <i class="fa fa-microphone fa-spin font-blue" ></i> Editing by : {{article.userNameChange}}
+          </button>
+
+          <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;"> </a>
+        </div>
+      </div>
+
+
+      <div class="portlet-body">
+
+        {{article.article}}
+
+      </div>
+    </div>
+    <!-- END Portlet PORTLET-->
+  </div>
+</div>
+
+
+
+
+
+
+<!--modal confirm restore -->
+<div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+  <div *ngIf="article.status!='trash'">
+    <div class="modal-header">
+      <h4 class="modal-title">Delete</h4>
+    </div>
+    <div class="modal-body" class="alert alert-danger">
+      Remove <br/><input type="radio" name="trash" value="trash" #res/>
+      <strong id="pulsate-regular1" style="padding:5px;"> {{article.title}} </strong>
+    </div>
+    <div class="modal-footer">
+      <button type="button" data-dismiss="modal" class="btn btn-outline dark">Cancel</button>
+      <a type="button" data-dismiss="modal" class="btn red" (click)="setRestore(res.value)" routerLink="/article/list">Ok</a>
+    </div>
+  </div>
+
+
+  <div *ngIf="article.status=='trash'">
+    <div class="modal-header">
+      <h4 class="modal-title">Delete</h4>
+    </div>
+    <div class="modal-body"> <b>Restore to :</b>
+      <br/><input type="radio" name="status" value="draft" #res/> Draft
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" data-dismiss="modal" class="btn btn-outline dark">Cancel</button>
+      <a type="button" data-dismiss="modal" class="btn red" (click)="setRestore(res.value)" routerLink="/article/list">Ok</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- modal share <responsive> -->
+
+<div id="responsive" class="modal fade" tabindex="-1" data-width="760">
+
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+    <h4 class="modal-title">Share</h4>
+  </div>
+  <div class="modal-body">
+    <div class="scroller" style="height:300px" data-always-visible="1" data-rail-visible1="1">
+      <div class="row">
+        <div class="col-md-6">
+          <h4>all User list</h4>
+          <p *ngFor="let u of _listUser">
+            <input type="checkbox" (click)="userShare(true, u.userName)"/>{{u.userName}}
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h4>user access</h4>
+          <p *ngFor="let l of article.userAccessList">
+            <input type="checkbox" (click)="userShare(false, l.userName)"/>{{l.userName}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+  <button type="button" data-dismiss="modal" class="btn btn-outline dark">OK</button>
+  </div>
+
+</div>
+
+
+<!--[routerLink]="['/article/form/', article.id]"-->
+
+
+<!--<div class="modal-body">-->
+  <!--<div *ngFor="let u of _listUser; let i = index">-->
+
+    <!--<input type="checkbox" name="user"-->
+           <!--#checkValue-->
+           <!--(click)="userShare(true, u.userName)"-->
+    <!--/>{{u.userName}}-->
+
+
+
+  <!--</div>-->
+  <!--<div class="modal-footer">-->
+    <!--<button type="button" data-dismiss="modal" class="btn btn-outline dark">OK</button>-->
+
+
+    <!--<div *ngFor="let kk of article.userAccessList">-->
+      <!--<input type="checkbox" (click)="userShare(false, kk.userName)"/>{{kk.userName}}-->
+    <!--</div>-->
+
+
+
+  <!--</div>-->
+<!--</div>-->

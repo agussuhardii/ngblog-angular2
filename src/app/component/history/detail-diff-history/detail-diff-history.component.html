@@ -1,0 +1,81 @@
+<div class="col-md-12">
+  <!-- BEGIN PORTLET-->
+  <div class="portlet light ">
+    <div class="portlet-title">
+      <div class="caption">
+        <h3>{{history.article.title}}</h3>
+      </div>
+      <div class="actions">
+        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;"> </a>
+      </div>
+    </div>
+    <div class="portlet-body">
+
+      <div class="col-md-6">
+        <!-- BEGIN PORTLET-->
+        <div class="portlet light ">
+          <div class="portlet-title">
+            <div class="actions">
+              <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;"> </a>
+            </div>
+          </div>
+          <div class="portlet-body">
+            <div id="text1" >{{history.oldArticle}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-md-6">
+        <!-- BEGIN PORTLET-->
+        <div class="portlet light ">
+          <div class="portlet-title">
+            <div class="actions">
+              <a class="btn btn-circle btn-icon-only btn-default" onclick="launch()" >
+                <i class="icon-social-dribbble font-blue-sharp"></i>
+              </a>
+              <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;"> </a>
+            </div>
+          </div>
+          <div class="portlet-body">
+            <div id="text2">{{history.newArticle}}
+            </div>
+            <div id="outputdiv"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+<hr />
+<hr />
+<hr />
+</div>
+  <div class="item">
+    <div class="item-head">
+      <div class="item-details">
+        <h4>Change Information</h4>
+        <span class="item-label"> </span><br />
+        <span class="item-label"> </span>
+      </div>
+      <span class="item-status"><span class="badge badge-empty badge-warning"></span> Date : {{history.updateDate  | date:'dd/mm/yyyy'}}</span>
+      <span class="item-status"><span class="badge badge-empty badge-warning"></span> Time : {{history.updateDate  | date:'HH:mm:ss'}}</span>
+      <span class="item-status"><span class="badge badge-empty badge-warning"></span> Browser : {{history.browserChange}}</span>
+      <span class="item-status"><span class="badge badge-empty badge-warning"></span> Action : {{history.informationChange}}</span>
+      <span class="item-status"><span class="badge badge-empty badge-warning"></span> Ip : {{history.localIpChange}}</span>
+      <span class="item-status"><span class="badge badge-empty badge-warning"></span> Operating System : {{history.operatingSystemChange}}</span>
+      <span class="item-status"><span class="badge badge-empty badge-warning"></span> User : {{history.userNameChange}}</span>
+    </div>
+  </div>
+
+
+
+
+

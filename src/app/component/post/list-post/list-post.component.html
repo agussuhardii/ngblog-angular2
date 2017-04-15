@@ -1,0 +1,21 @@
+<div *ngFor="let post of article">
+  <div class="m-heading-1 border-green m-bordered">
+  <span class="caption-helper">{{post.createDate | date:'dd/mm/yyyy - HH:mm:ss'}}</span>
+
+    <a [routerLink]="['../', post.id]">
+      <h3>{{post.title}}</h3>
+    </a>
+
+    <p class="demo-1"> {{post.article}}</p>
+    <a [routerLink]="['../', post.id]">
+      <p>Read More...</p>
+    </a>
+
+
+  </div>
+
+
+
+
+
+</div>
